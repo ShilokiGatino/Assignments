@@ -111,10 +111,10 @@ nopath2=${R2##*/}
 sample1=${nopath1%R1.fastq.gz}
 sample2=${nopath2%R2.fastq.gz}
 ```
-What this is doing is stripping the file name (data/ERR108028##.fastq.gz) down to ERR108028##_ for both the R1 and R2 files. The `nopath` variables are removing the data/ path. I had to look this up because I kept getting an error because of the `data/` path in front of the file. `R1##*/` is saying to remove everything up to *and* including the last `/` in R1 (data/ERR108028##.fastq.gz -> ERR108028##.fastq.gz). I could have also used `R1#*/` in this case, which only removes the first `/` present, and would have worked because we only have one `/` in our file name. If I were to use a file that had a path with two slashed (ex: data/fastq/ERR108028##.fastq.gz) `R1#*/` would not work, so `R1##*/` is more veritile. 
+What this is doing is stripping the file name (data/ERR108028##.fastq.gz) down to ERR108028##_ for both the R1 and R2 files. The `nopath` variables are removing the data/ path. I had to look this up because I kept getting an error because of the `data/` path in front of the file. `R1##*/` is saying to remove everything up to *and* including the last `/` in R1 (data/ERR108028##.fastq.gz -> ERR108028##.fastq.gz). I could have also used `R1#*/` in this case, which only removes the first `/` present, and would have worked because we only have one `/` in our file name. If I were to use a file that had a path with two slashes (ex: data/fastq/ERR108028##.fastq.gz) `R1#*/` would not work, so `R1##*/` is more veritile. 
 
-After removing the path from both the R1 and R2, I removed the`R1.fastq.gz` with `%` to get ERR108028##. 
-I then used the stripped name to apply the mv function to chanege the name of the file from results/trimgalore/ERR108028##_R1_val_1.fq.gz to results/trimgalore/ERR108028##_R1_trimmed.fq.gz, repeating with the R2 and other files produced. 
+After removing the path from both the R1 and R2, I removed the `R1.fastq.gz` with `%` to get ERR108028##. 
+I then used the stripped name to apply the mv function to change the name of the file from results/trimgalore/ERR108028##_R1_val_1.fq.gz to results/trimgalore/ERR108028##_R1_trimmed.fq.gz, repeating with the R2 and other files produced. 
 And the `mv` commands to rename:
 
 ```bash 
