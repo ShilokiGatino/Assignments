@@ -1,0 +1,16 @@
+.config/
+gitignore/
+GA2/
+GA3/
+garrigos-data/
+help/
+week02/
+week03/
+week04/
+week05/
+week06/
+week07/
+download?include_annotation_type=GENOME_FASTA
+project/
+week08/
+wget-log
